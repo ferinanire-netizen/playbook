@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+Copy this and replace your current file:
+
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playbook Route</title>
+  <title>Playbook</title>
 
-  <!-- Inter Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600\&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -21,16 +21,13 @@
       background-color: #111827;
       color: white;
       padding: 20px;
-      box-sizing: border-box;
+      position: fixed;
+      overflow-y: auto;
     }
 
     .sidebar h1 {
       font-size: 18px;
       margin-bottom: 25px;
-    }
-
-    .sidebar {
-  overflow-y: auto;
     }
 
     .menu-item {
@@ -52,25 +49,26 @@
       margin-left: 15px;
     }
 
-    .submenu div {
+    .submenu a {
+      display: block;
       padding: 6px 0;
       font-size: 14px;
       color: #9ca3af;
-      cursor: pointer;
+      text-decoration: none;
     }
 
-    .submenu div:hover {
+    .submenu a:hover {
       color: white;
     }
 
     .content {
+      margin-left: 260px;
       flex: 1;
       background-color: #f9fafb;
       display: flex;
       flex-direction: column;
     }
 
-    /* Header */
     .header {
       background-color: white;
       padding: 15px 30px;
@@ -78,16 +76,6 @@
       justify-content: center;
       gap: 30px;
       border-bottom: 1px solid #e5e7eb;
-    }
-
-    .header a {
-      text-decoration: none;
-      color: #374151;
-      font-weight: 500;
-    }
-
-    .header a:hover {
-      color: #111827;
     }
 
     .main {
@@ -98,83 +86,67 @@
 
 <body>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h1>Playbook Route</h1>
-	  <ul class="submenu">
-        <li><a href="/playbook/doc/cobragold.html">Cobra Gold</a></li>
-        <li><a href="/playbook/doc/copetiger.html">Cope Tiger</a></li>
-      </ul>
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h1>Playbook Route</h1>
 
-    </li>
-  </ul>
+  <!-- Dashboard -->
+  <div class="menu-item" onclick="toggleMenu('dashboardMenu')">Dashboard ▾</div>
+  <div id="dashboardMenu" class="submenu">
+    <a href="/playbook/index.html">Plays Summary</a>
+    <a href="#">Changes</a>
+    <a href="#">Modified</a>
+  </div>
+
+  <!-- Routes -->
+  <div class="menu-item" onclick="toggleMenu('routesMenu')">Routes ▾</div>
+  <div id="routesMenu" class="submenu">
+
+    <!-- North -->
+    <div onclick="toggleMenu('northMenu')">North ▾</div>
+    <div id="northMenu" class="submenu">
+      <a href="/playbook/doc/cobragold.html">Cobra Gold</a>
+      <a href="/playbook/doc/cope.html">Cope Tiger</a>
+      <a href="/playbook/doc/falcon.html">Falcon Strike</a>
+      <a href="/playbook/doc/csar.html">CSAR</a>
+      <a href="/playbook/doc/cas.html">CAS</a>
+    </div>
+
+    <!-- South -->
+    <div onclick="toggleMenu('southMenu')">South ▾</div>
+    <div id="southMenu" class="submenu">
+      <a href="/playbook/doc/dact.html">DACT / IN-SITU</a>
+      <a href="/playbook/doc/rtf.html">RTAF Combat Readiness</a>
+    </div>
+
+  </div>
+
+  <!-- Other -->
+  <div class="menu-item">Settings</div>
 </div>
 
-    <!-- Dashboard -->
-    <div class="menu-item" onclick="toggleMenu('dashboardMenu')">Dashboard ▾</div>
-    <div id="dashboardMenu" class="submenu">
-      <div>Plays Summary</div>
-      <div>Changes</div>
-      <div>Modified</div>
-    </div>
+<!-- CONTENT -->
+<div class="content">
 
-    <!-- Routes -->
-    <div class="menu-item" onclick="toggleMenu('routesMenu')">Routes ▾</div>
-    <div id="routesMenu" class="submenu">
-
-      <!-- North -->
-      <div onclick="toggleMenu('northMenu')">North ▾</div>
-      <div id="northMenu" class="submenu">
-        <li><a href="/playbook/doc/cobragold.html">Cobra Gold</a></li>
-        <div>Cope Tiger</div>
-      	<div>Falcon Strike</div>
-        <div>CSAR</div>
-        <div>CAS</div>
-        <div>Elang Thainesia</div>
-        <div>Thai Boomerang</div>
-        <div>Enduring Partners</div>
-        <div>Air Thamal</div>
-        <div>Air Thaising</div>
-        <div>Night Operation</div>
-        <div>AWC</div>
-      </div>
-
-      <!-- South -->
-      <div onclick="toggleMenu('southMenu')">South ▾</div>
-      <div id="southMenu" class="submenu">
-        <div>DACT / IN-SITU</div>
-	<div>RTAF Combat Readiness Evaluation</div>
-      </div>
-
-    </div>
-
-    <!-- Other -->
-    <div class="menu-item">Settings</div>
+  <div class="header">
+    <a href="#">Contact</a>
+    <a href="#">Link</a>
   </div>
 
-  <!-- Content -->
-  <div class="content">
-
-    <!-- Header -->
-    <div class="header">
-      <a href="#">Contact</a>
-      <a href="#">Link</a>
-    </div>
-
-    <!-- Main -->
-    <div class="main">
-      <h2>Dashboard</h2>
-      <p>Select a submenu from the left.</p>
-    </div>
-
+  <div class="main">
+    <h2>DACT / IN-SITU</h2>
+    <p>This is your content page.</p>
   </div>
 
-  <script>
-    function toggleMenu(id) {
-      const menu = document.getElementById(id);
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
-    }
-  </script>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  function toggleMenu(id) {
+    const menu = document.getElementById(id);
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
+</script>
 
 </body>
 </html>
