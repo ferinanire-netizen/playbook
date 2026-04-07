@@ -176,6 +176,16 @@
       menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
   </script>
+	<script>
+  const links = document.querySelectorAll('.submenu a');
+
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      links.forEach(l => l.style.color = '#9ca3af');
+      this.style.color = 'white';
+    });
+  });
+</script>
 
 </body>
 </html>
