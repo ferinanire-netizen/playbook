@@ -181,9 +181,12 @@
 
   links.forEach(link => {
     link.addEventListener('click', function() {
-      links.forEach(l => l.style.color = '#9ca3af');
-      this.style.color = 'white';
+      localStorage.setItem('activeLink', this.getAttribute('href'));
     });
+
+    if (link.getAttribute('href') === localStorage.getItem('activeLink')) {
+      link.style.color = 'white';
+    }
   });
 </script>
 
