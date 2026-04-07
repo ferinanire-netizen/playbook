@@ -2,174 +2,63 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Playbook Route</title>
+<title>Cope Tiger</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  display: flex;
+body{
+  margin:0;
+  font-family:'Inter', sans-serif;
+  background:#f9fafb;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 260px;
-  height: 100vh;
-  background-color: #111827;
-  color: white;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
+.container{
+  padding:40px;
+  max-width:900px;
 }
 
-.sidebar h1 {
-  font-size: 18px;
-  margin-bottom: 25px;
+h1{
+  margin-top:0;
+  color:#111827;
 }
 
-.menu-item {
-  cursor: pointer;
-  padding: 10px 0;
-  color: #d1d5db;
-}
-
-.menu-item:hover {
-  color: white;
-}
-
-.submenu {
-  display: none;
-  margin-left: 10px;
-}
-
-.submenu .submenu {
-  margin-left: 15px;
-}
-
-/* Make submenu clickable without link style */
-.submenu div {
-  padding: 6px 0;
-  font-size: 14px;
-  color: #9ca3af;
-  cursor: pointer;
-}
-
-.submenu div:hover {
-  color: white;
-}
-
-/* Content */
-.content {
-  flex: 1;
-  background-color: #f9fafb;
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  background-color: white;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.main {
-  padding: 30px;
+p{
+  color:#374151;
+  line-height:1.6;
 }
 </style>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cope Tiger</title>
+
+  <script>
+    if (window.self === window.top) {
+      window.location.href = "/playbook/index.html#ct";
+    }
+  </script>
+
 </head>
 
 <body>
 
-<!-- Sidebar -->
-<div class="sidebar">
-  <h1>Playbook Route</h1>
+<div class="container">
 
-  <div class="menu-item" onclick="toggleMenu('routesMenu')">Routes ▾</div>
+<h1>Cope Tiger</h1>
 
-  <div id="routesMenu" class="submenu">
+<p>
+Cobra Gold is a multinational military exercise hosted annually in Thailand.
+It focuses on joint military operations, humanitarian assistance, and
+regional security cooperation.
+</p>
 
-    <div onclick="toggleMenu('northMenu')">North ▾</div>
-
-    <div id="northMenu" class="submenu">
-      <div onclick="loadPage('cg')">Cobra Gold</div>
-      <div onclick="loadPage('ct')">Cope Tiger</div>
-      <div onclick="loadPage('falcon')">Falcon Strike</div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Content -->
-<div class="content">
-
-  <div class="header">
-    <div>Playbook System</div>
-  </div>
-
-  <div class="main" id="mainContent">
-    <h2>Dashboard</h2>
-    <p>Select a submenu.</p>
-  </div>
+<p>
+The exercise involves air operations, tactical coordination,
+and interoperability between participating nations.
+</p>
 
 </div>
-
-<script>
-
-/* Toggle menu */
-function toggleMenu(id) {
-  const menu = document.getElementById(id);
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
-/* Load pages WITHOUT reload */
-function loadPage(page) {
-  const main = document.getElementById('mainContent');
-
-  if (page === 'cg') {
-    main.innerHTML = `
-      <h2>Cobra Gold</h2>
-      <p>Multinational military exercise in Thailand.</p>
-    `;
-  }
-
-  if (page === 'ct') {
-    main.innerHTML = `
-      <h2>Cope Tiger</h2>
-      
-      <p><b>Overview</b></p>
-      <p>Cope Tiger is a trilateral air exercise conducted by Thailand, USA, and Singapore.</p>
-
-      <p><b>Objectives</b></p>
-      <ul>
-        <li>Enhance interoperability</li>
-        <li>Improve air combat readiness</li>
-        <li>Strengthen regional cooperation</li>
-      </ul>
-
-      <p><b>Activities</b></p>
-      <ul>
-        <li>Air combat training (DACT)</li>
-        <li>Strike missions</li>
-        <li>Air refueling</li>
-      </ul>
-    `;
-  }
-
-  if (page === 'falcon') {
-    main.innerHTML = `
-      <h2>Falcon Strike</h2>
-      <p>Joint air exercise with focus on tactical operations.</p>
-    `;
-  }
-}
-
-</script>
 
 </body>
 </html>
