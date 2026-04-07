@@ -1,205 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playbook Route</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playbook Route</title>
 
-  <!-- Inter Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600\&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-    }
-
-    .sidebar {
-      width: 260px;
-      height: 100vh;
-      background-color: #111827;
-      color: white;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .sidebar h1 {
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-
-    .sidebar {
-  overflow-y: auto;
-    }
-
-    .menu-item {
-      cursor: pointer;
-      padding: 10px 0;
-      color: #d1d5db;
-    }
-
-    .menu-item:hover {
-      color: white;
-    }
-
-    .submenu {
-      display: none;
-      margin-left: 10px;
-    }
-
-    .submenu .submenu {
-      margin-left: 15px;
-    }
-
-    .submenu div {
-      padding: 6px 0;
-      font-size: 14px;
-      color: #9ca3af;
-      cursor: pointer;
-    }
-
-    .submenu div:hover {
-      color: white;
-    }
-
-    .content {
-      flex: 1;
-      background-color: #f9fafb;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Header */
-    .header {
-      background-color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .header a {
-      text-decoration: none;
-      color: #374151;
-      font-weight: 500;
-    }
-
-    .header a:hover {
-      color: #111827;
-    }
-
-    .main {
-      padding: 30px;
-    }
-	  .submenu a {
-  text-decoration: none;
-  color: #9ca3af;
-  display: block;
-  padding: 6px 0;
-  font-size: 14px;
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  display: flex;
 }
 
-.submenu a:hover {
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #111827;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  position: relative;
+  z-index: 10; /* FIX click issue */
+}
+
+.sidebar h1 {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.menu-item {
+  cursor: pointer;
+  padding: 10px 0;
+  color: #d1d5db;
+}
+
+.menu-item:hover {
   color: white;
 }
-  </style>
-	
+
+.submenu {
+  display: none;
+  margin-left: 10px;
+}
+
+.submenu div {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.submenu div:hover {
+  color: white;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* HEADER */
+.header {
+  background-color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header a {
+  text-decoration: none;
+  color: #374151;
+}
+
+.header a:hover {
+  color: #111827;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 0; /* important */
+}
+
+/* IFRAME */
+#contentFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h1>Playbook Route</h1>
+<!-- Sidebar -->
+<div class="sidebar">
+  <h1>Playbook Route</h1>
 
-    <!-- Dashboard -->
-    <div class="menu-item" onclick="toggleMenu('dashboardMenu')">Dashboard ▾</div>
-    <div id="dashboardMenu" class="submenu">
-      <div>Plays Summary</div>
-      <div>Changes</div>
-      <div>Modified</div>
+  <div class="menu-item" onclick="toggleMenu('routesMenu')">Routes ▾</div>
+  <div id="routesMenu" class="submenu">
+
+    <div onclick="toggleMenu('northMenu')">North ▾</div>
+    <div id="northMenu" class="submenu">
+      <div onclick="loadPage('doc/cg.html')">Cobra Gold</div>
+      <div onclick="loadPage('doc/ct.html')">Cope Tiger</div>
+      <div onclick="loadPage('doc/falcon.html')">Falcon Strike</div>
+      <div onclick="loadPage('doc/csar.html')">CSAR</div>
+      <div onclick="loadPage('doc/cas.html')">CAS</div>
+      <div onclick="loadPage('doc/elang.html')">Elang Thainesia</div>
+      <div onclick="loadPage('doc/boomerang.html')">Thai Boomerang</div>
+      <div onclick="loadPage('doc/enduring.html')">Enduring Partners</div>
+      <div onclick="loadPage('doc/thamal.html')">Air Thamal</div>
+      <div onclick="loadPage('doc/thaising.html')">Air Thaising</div>
+      <div onclick="loadPage('doc/nightops.html')">Night Operation</div>
+      <div onclick="loadPage('doc/awc.html')">AWC</div>
     </div>
 
-    <!-- Routes -->
-    <div class="menu-item" onclick="toggleMenu('routesMenu')">Routes ▾</div>
-    <div id="routesMenu" class="submenu">
-
-      <!-- North -->
-      <div onclick="toggleMenu('northMenu')">North ▾</div>
-      <div id="northMenu" class="submenu">
-        <a href="/playbook/doc/cg.html">Cobra Gold</a>
-        <div onclick="loadPage('ct')">Cope Tiger</div>
-      	<a href="/playbook/doc/falcon.html">Falcon Strike</a>
-        <a href="/playbook/doc/csar.html">CSAR</a>
-        <a href="/playbook/doc/cas.html">CAS</a>
-        <a href="/playbook/doc/elang.html">Elang Thainesia</a>
-        <a href="/playbook/doc/boomerang.html">Thai Boomerang</a>
-        <a href="/playbook/doc/enduring.html">Enduring Partners</a>
-        <a href="/playbook/doc/thamal.html">Air Thamal</a>
-        <a href="/playbook/doc/thaising.html">Air Thaising</a>
-        <a href="/playbook/doc/nightops.html">Night Operation</a>
-        <a href="/playbook/doc/awc.html">AWC</a>
-      </div>
-
-      <!-- South -->
-      <div onclick="toggleMenu('southMenu')">South ▾</div>
-      <div id="southMenu" class="submenu">
-        <a href="/playbook/doc/dact.html">DACT / IN-SITU</a>
-		<div>RTAF Combat Readiness Evaluation</div>
-      </div>
-
-    </div>
-
-    <!-- Other -->
-    <div class="menu-item">Settings</div>
-  </div>
-
-  <!-- Content -->
-  <div class="content">
-
-    <!-- Header -->
-    <div class="header">
-      <a href="#">Contact</a>
-      <a href="#">Link</a>
-    </div>
-
-    <!-- Main -->
-    <div class="main">
-      <h2>Dashboard</h2>
-      <p>Select a submenu from the left.</p>
+    <div onclick="toggleMenu('southMenu')">South ▾</div>
+    <div id="southMenu" class="submenu">
+      <div onclick="loadPage('doc/dact.html')">DACT / IN-SITU</div>
     </div>
 
   </div>
+</div>
 
-  <script>
-function loadPage(page) {
-  const main = document.querySelector('.main');
+<!-- Content -->
+<div class="content">
 
-  if (page === 'cg') {
-    main.innerHTML = `
-      <h2>Cobra Gold</h2>
-      <p>This is Cobra Gold content</p>
-    `;
-  }
+  <div class="header">
+    <a href="#">Contact</a>
+    <a href="#">Link</a>
+  </div>
 
-  if (page === 'ct') {
-    main.innerHTML = `
-      <h2>Cope Tiger</h2>
-      <p>This is Cope Tiger content</p>
-    `;
-  }
+  <div class="main">
+    <iframe id="contentFrame"></iframe>
+  </div>
 
-  if (page === 'falcon') {
-    main.innerHTML = `
-      <h2>Falcon Strike</h2>
-      <p>This is Falcon Strike content</p>
-    `;
-  }
+</div>
+
+<script>
+function toggleMenu(id) {
+  const menu = document.getElementById(id);
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
+
+function loadPage(page) {
+  document.getElementById("contentFrame").src = page;
+}
+
+/* Load default page */
+window.onload = function () {
+  loadPage('doc/cg.html');
+};
 </script>
-	
 
 </body>
 </html>
