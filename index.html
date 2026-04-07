@@ -130,7 +130,7 @@
       <div onclick="toggleMenu('northMenu')">North ▾</div>
       <div id="northMenu" class="submenu">
         <a href="/playbook/doc/cg.html">Cobra Gold</a>
-        <a href="/playbook/doc/ct.html">Cope Tiger</a>
+        <div onclick="loadPage('ct')">Cope Tiger</div>
       	<a href="/playbook/doc/falcon.html">Falcon Strike</a>
         <a href="/playbook/doc/csar.html">CSAR</a>
         <a href="/playbook/doc/cas.html">CAS</a>
@@ -179,6 +179,32 @@
       menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
   </script>
+	<script>
+function loadPage(page) {
+  const main = document.querySelector('.main');
+
+  if (page === 'cg') {
+    main.innerHTML = `
+      <h2>Cobra Gold</h2>
+      <p>This is Cobra Gold content</p>
+    `;
+  }
+
+  if (page === 'ct') {
+    main.innerHTML = `
+      <h2>Cope Tiger</h2>
+      <p>This is Cope Tiger content</p>
+    `;
+  }
+
+  if (page === 'falcon') {
+    main.innerHTML = `
+      <h2>Falcon Strike</h2>
+      <p>This is Falcon Strike content</p>
+    `;
+  }
+}
+</script>
 
 </body>
 </html>
