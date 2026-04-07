@@ -25,7 +25,7 @@ body {
   overflow-y: auto;
 
   position: relative;
-  z-index: 10; /* FIX click issue */
+  z-index: 2; /* enough, not too high */
 }
 
 .sidebar h1 {
@@ -77,19 +77,9 @@ body {
   border-bottom: 1px solid #e5e7eb;
 }
 
-.header a {
-  text-decoration: none;
-  color: #374151;
-}
-
-.header a:hover {
-  color: #111827;
-}
-
 /* MAIN */
 .main {
   flex: 1;
-  padding: 0; /* important */
 }
 
 /* IFRAME */
@@ -138,12 +128,11 @@ body {
 <div class="content">
 
   <div class="header">
-    <a href="#">Contact</a>
-    <a href="#">Link</a>
+    <div>Playbook System</div>
   </div>
 
   <div class="main">
-    <iframe id="contentFrame"></iframe>
+    <iframe id="contentFrame" src="doc/cg.html"></iframe>
   </div>
 
 </div>
@@ -151,17 +140,13 @@ body {
 <script>
 function toggleMenu(id) {
   const menu = document.getElementById(id);
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
+  menu.style.display =
+    menu.style.display === "block" ? "none" : "block";
 }
 
 function loadPage(page) {
   document.getElementById("contentFrame").src = page;
 }
-
-/* Load default page */
-window.onload = function () {
-  loadPage('doc/cg.html');
-};
 </script>
 
 </body>
